@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "corporate-ghost-quiz",
+  "account_id": "566af0b745992bd050ad1ad41cb1314c",
   "compatibility_date": "2026-09-18",
   "compatibility_flags": [
     "nodejs_compat"
