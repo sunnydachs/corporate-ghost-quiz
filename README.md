@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Corporate Ghost Quiz
 
-## Getting Started
+A self-roast personality quiz: **"What Kind Of Corporate Ghost Are You?"** — eight slippery-slope questions, one haunted work style, no recovery plan.
 
-First, run the development server:
+A cheeky export of Japan's "社畜 (corporate drone) self-roast" diagnosis culture to the English-speaking internet — fast, mobile-first, and built to be screenshot-friendly.
+
+## Live
+
+https://corporate-ghost-quiz.sunnydachs.workers.dev
+
+## Stack
+
+- **Next.js 16** (App Router) + **vinext** — server components & SSR that compile clean to Cloudflare Workers
+- **Cloudflare Workers** — zero-config free-tier hosting; deploys via GitHub Actions on push to `main`
+- **TypeScript**, strict. **vitest** for the deterministic scoring engine.
+- **Pixazo (flux-1-schnell)** generated the per-type ghost icons and the OG image.
+
+Why no runtime AI: the quiz is a **deterministic, client-side scoring** engine. Pure function in `lib/scoring.ts`, no network, no API keys, no per-request cost or rate limits. It can survive a viral spike at $0.
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev:vinext     # vinext dev server (Cloudflare runtime)
+npm run build:vinext   # production build
+npm run start:vinext   # serve built worker locally (wrangler)
+npm test               # vitest unit tests (scoring engine)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Next.js-native scripts (`npm run dev` / `build` / `start`) also exist if you want the standard Next.js toolchain for local iteration.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Pushing to `main` triggers GitHub Actions, which:
+1. installs deps
+2. runs `npm test`
+3. builds with vi
+4. deploys to Cloudflare Workers via `npm run deploy:vinext`
 
-## Learn More
+Requires a `CLOUDFLARE_API_TOKEN` repo secret with Workers Scripts edit permission (see `wrangler.jsonc` for the `account_id`).
 
-To learn more about Next.js, take a look at the following resources:
+## Architecture
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/layout.tsx    → metadata + OG/Twitter cards
+app/page.tsx      → start → 8-question → result state machine (client)
+lib/ghosts.ts     → the 8 ghost types (content) + questions
+lib/scoring.ts    → deterministic scorer (pure, tested)
+public/ghosts/    → Pixazo-generated type icons
+public/og-bg.png  → Open Graph share image (1200×630)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The 8 ghosts: Overtime Ghost Master (OTGM), Meeting Revenant (MTRG), KPI Zombie (KPIZ), Cubicle Poltergeist (CPGH), Email Zombie (EMZG), Burnout Phantom (BRNT), Slack Ghoul (SLGH), Lunchtime Ghost (LNGH).
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
