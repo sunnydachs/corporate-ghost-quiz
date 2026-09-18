@@ -295,6 +295,15 @@ h1 {
   filter: drop-shadow(0 12px 24px rgba(117, 240, 199, 0.15));
 }
 
+.result-image {
+  display: block;
+  width: clamp(180px, 55vw, 260px);
+  height: auto;
+  margin: 0 auto 18px;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
 .result-card h2 {
   margin-bottom: 6px;
   font-size: clamp(2rem, 8vw, 4rem);

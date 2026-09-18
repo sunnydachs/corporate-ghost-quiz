@@ -12,6 +12,7 @@ export type Ghost = {
   code: GhostCode;
   name: string;
   emoji: string;
+  image: string;
   title: string;
   short: string;
   description: string;
@@ -33,6 +34,7 @@ export const ghosts: Ghost[] = [
     code: "OTGM",
     name: "The Overtime Ghost Master",
     emoji: "🕛",
+    image: "/ghosts/ghost-otgm.png",
     title: "Deadline's favorite employee",
     short: "You've seen 2am so often it quietly filed a restraining order.",
     description:
@@ -49,6 +51,7 @@ export const ghosts: Ghost[] = [
     code: "MTRG",
     name: "The Meeting Revenant",
     emoji: "📋",
+    image: "/ghosts/ghost-mtrg.png",
     title: "An appointment to have no appointments",
     short: "Your calendar is so full you scheduled a meeting to read this quiz.",
     description:
@@ -65,6 +68,7 @@ export const ghosts: Ghost[] = [
     code: "KPIZ",
     name: "The KPI Zombie",
     emoji: "📊",
+    image: "/ghosts/ghost-kpiz.png",
     title: "If it isn't measured, it doesn't exist",
     short: "You once felt productive just because a number went up.",
     description:
@@ -82,6 +86,7 @@ export const ghosts: Ghost[] = [
     code: "CPGH",
     name: "The Cubicle Poltergeist",
     emoji: "🧊",
+    image: "/ghosts/ghost-cpgh.png",
     title: "Two screens, zero plans",
     short:
       "You've been at your desk 30 minutes and still haven't decided what to open first.",
@@ -99,6 +104,7 @@ export const ghosts: Ghost[] = [
     code: "EMZG",
     name: "The Email Zombie",
     emoji: "✉️",
+    image: "/ghosts/ghost-emzg.png",
     title: "Send now, think never",
     short: "You reply to emails before the sender finishes writing them.",
     description:
@@ -115,6 +121,7 @@ export const ghosts: Ghost[] = [
     code: "BRNT",
     name: "The Burnout Phantom",
     emoji: "🔋",
+    image: "/ghosts/ghost-brnt.png",
     title: "Running on fumes and office coffee",
     short: "Your weekend is 48 hours and somehow none of it restores you.",
     description:
@@ -131,6 +138,7 @@ export const ghosts: Ghost[] = [
     code: "SLGH",
     name: "The Slack Ghoul",
     emoji: "💬",
+    image: "/ghosts/ghost-slgh.png",
     title: "Typing… until the end of time",
     short:
       "You've said “sorry for the late reply” so often it's your catchphrase.",
@@ -149,6 +157,7 @@ export const ghosts: Ghost[] = [
     code: "LNGH",
     name: "The Lunchtime Ghost",
     emoji: "🍱",
+    image: "/ghosts/ghost-lngh.png",
     title: "Desk dining eternal",
     short: "You asked what you had for lunch and genuinely don't remember.",
     description:

@@ -10,12 +10,14 @@ export const metadata: Metadata = {
     description:
       "Eight questions. One cursed corporate ghost. No recovery plan.",
     type: "website",
+    images: [{ url: "/og-bg.png", width: 1200, height: 630, alt: "A haunted office at midnight — Corporate Ghost Quiz" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "What Corporate Ghost Are You?",
     description:
       "Eight questions. One cursed corporate ghost. No recovery plan.",
+    images: ["/og-bg.png"],
   },
 };
 
