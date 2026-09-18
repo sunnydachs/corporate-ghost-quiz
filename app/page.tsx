@@ -102,6 +102,7 @@ export default function Home() {
                 <span className="result-code">{result.code}</span>
               </div>
               <div className="result-emoji" aria-hidden="true">{result.emoji}</div>
+              <img className="result-image" src={result.image} alt={result.name} width={512} height={512} />
               <h2>{result.name}</h2>
               <p className="result-title">{result.title}</p>
               <p className="result-hook">“{result.short}”</p>
