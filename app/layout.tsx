@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://corporate-ghost-quiz.sunnydachs.workers.dev"),
   title: "What Corporate Ghost Are You? (Self-Roast Quiz)",
   description:
     "Take the self-roast personality quiz and discover your haunted work style.",
