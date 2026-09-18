@@ -55,3 +55,8 @@ The 8 ghosts: Overtime Ghost Master (OTGM), Meeting Revenant (MTRG), KPI Zombie 
 ## License
 
 MIT
+## Result pages & share
+
+Each ghost type has a static result page at `/result/<CODE>` (e.g. [/result/EMZG](https://corporate-ghost-quiz.sunnydachs.workers.dev/result/EMZG)) with a type-specific OG share image, so shared links render a rich preview card on X/Discord/Slack.
+
+Share the quiz itself for the generic card, or share a result page link for the per-type card.
