@@ -51,7 +51,6 @@ export default async function ResultPage({ params }: PageProps) {
               <span className="result-kicker">Your corporate ghost</span>
               <span className="result-code">{ghost.code}</span>
             </div>
-            <div className="result-emoji" aria-hidden="true">{ghost.emoji}</div>
             <img className="result-image" src={ghost.image} alt={ghost.name} width={512} height={512} />
             <h2>{ghost.name}</h2>
             <p className="result-title">{ghost.title}</p>
@@ -85,11 +84,11 @@ export default async function ResultPage({ params }: PageProps) {
               <h3>Choose your poison</h3>
             </div>
             <div className="ghost-index-grid">
-              {ghosts.map((ghost) => (
-                <div className="ghost-index-item" key={ghost.code}>
-                  <span>{ghost.emoji}</span>
-                  <div><strong>{ghost.code}</strong><p>{ghost.name}</p></div>
-                </div>
+              {ghosts.map((g) => (
+                <Link className="ghost-index-item" key={g.code} href={`/result/${g.code}`}>
+                  <img className="ghost-index-image" src={g.image} alt={g.name} width={512} height={512} loading="lazy" />
+                  <div><strong>{g.code}</strong><p>{g.name}</p></div>
+                </Link>
               ))}
             </div>
           </div>

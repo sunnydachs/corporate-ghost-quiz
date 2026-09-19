@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { getGhost, ghosts, questions, type GhostCode } from "@/lib/ghosts";
 import { formatShareText, scoreAnswers } from "@/lib/scoring";
@@ -101,7 +102,6 @@ export default function Home() {
                 <span className="result-kicker">Your corporate ghost</span>
                 <span className="result-code">{result.code}</span>
               </div>
-              <div className="result-emoji" aria-hidden="true">{result.emoji}</div>
               <img className="result-image" src={result.image} alt={result.name} width={512} height={512} />
               <h2>{result.name}</h2>
               <p className="result-title">{result.title}</p>
@@ -143,10 +143,10 @@ export default function Home() {
                 </div>
                 <div className="ghost-index-grid">
                   {ghosts.map((ghost) => (
-                    <div className="ghost-index-item" key={ghost.code}>
-                      <span>{ghost.emoji}</span>
+                    <Link className="ghost-index-item" key={ghost.code} href={`/result/${ghost.code}`}>
+                      <img className="ghost-index-image" src={ghost.image} alt={ghost.name} width={512} height={512} loading="lazy" />
                       <div><strong>{ghost.code}</strong><p>{ghost.name}</p></div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
