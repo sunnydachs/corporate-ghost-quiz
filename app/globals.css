@@ -455,10 +455,25 @@ h1 {
   padding: 11px;
   border: 1px solid rgba(158, 180, 200, 0.14);
   border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
 }
 
-.ghost-index-item > span {
-  font-size: 1.4rem;
+.ghost-index-item:hover {
+  border-color: rgba(117, 240, 199, 0.55);
+  background: rgba(117, 240, 199, 0.05);
+  transform: translateY(-2px);
+}
+
+.ghost-index-item:active {
+  transform: translateY(0);
+}
+
+.ghost-index-image {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .ghost-index-item strong {
