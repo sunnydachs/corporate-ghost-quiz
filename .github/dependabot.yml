@@ -8,6 +8,14 @@ updates:
     labels:
       - "dependencies"
       - "npm"
+    # @vinext/cloudflare (deploy adapter) must stay in lockstep with the
+    # vinext core version; a core-only bump breaks the deploy job with
+    # "does not provide an export named ..." until the matching adapter
+    # release lands on npm. Re-enable when @vinext/cloudflare beta.11+
+    # is published and both are bumped together.
+    ignore:
+      - dependency-name: "vinext"
+        versions: ["1.0.0-beta.11"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
